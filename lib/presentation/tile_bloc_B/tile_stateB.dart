@@ -15,17 +15,12 @@ class SuperiorStateB extends Equatable {
 extension TileStateExtensionB on Object {
   Object get initial => TileInitialB();
   Object get loading => TileLoadingB();
-  Object get loaded => TileLoadedB(tiles: const []);
-  Object get updating => TileUpdatingB(tiles: const []);
+  Object get loaded => TileLoadedB(tiles: TileStateB().tilesSum).runtimeType;
+  Object get updating =>
+      TileUpdatingB(tiles: TileStateB().tilesSum).runtimeType;
   Object get error =>
       TileErrorB(failure: DefaultFailure(code: "extension on object error"));
-  Object get tiles => [];
-
-  // Object get initial => TileStateB().initial;
-  // Object get loading => TileStateB().loading;
-  // Object get loaded => TileStateB().loaded;
-  // Object get updating => TileStateB().updating;
-  // Object get error => TileStateB().error;
+  // Object get tiles => [];
 }
 
 // extension TileStateExtensionB on SuperiorStateB {
@@ -39,6 +34,8 @@ extension TileStateExtensionB on Object {
 
 @immutable
 class TileStateB extends RootState with EquatableMixin {
+  List<Tile> tilesSum = [];
+
   @override
   List<Object?> get props => [];
 }
@@ -56,7 +53,9 @@ class TileLoadingB extends TileStateB {
 class TileUpdatingB extends TileStateB {
   final List<Tile> tiles;
 
-  TileUpdatingB({required this.tiles});
+  TileUpdatingB({required this.tiles}) {
+    tilesSum = tiles;
+  }
 
   @override
   List<Object> get props => tiles;
@@ -65,7 +64,9 @@ class TileUpdatingB extends TileStateB {
 class TileLoadedB extends TileStateB {
   final List<Tile> tiles;
 
-  TileLoadedB({required this.tiles});
+  TileLoadedB({required this.tiles}) {
+    tilesSum = tiles;
+  }
 
   @override
   List<Object> get props => tiles;

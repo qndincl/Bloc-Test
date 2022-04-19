@@ -10,36 +10,15 @@ class SuperiorStateA extends Equatable {
   List<Object?> get props => [];
 }
 
-// List<Tile> tilesSum = [];
-
 extension TileStateExtension on Object {
   TileInitial get initial => TileInitial();
   TileLoading get loading => TileLoading();
   Type get loaded => TileLoaded(tiles: TileState().tilesSum).runtimeType;
   Type get updating => TileUpdating(tiles: TileState().tilesSum).runtimeType;
-  // TileLoaded get loaded => TileLoaded(tiles: tilesSum);
-  // TileUpdating get updating => TileUpdating(tiles: tilesSum);
   TileError get error =>
       TileError(failure: DefaultFailure(code: "extension on object error"));
   // List<Tile> get tiles => TileState().tilesSum;
 
-  // TileLoaded(tiles: TileState().props as List<Tile>).tiles;
-  // TileLoaded().tiles;
-
-  // Object get initial => TileInitial();
-  // Object get loading => TileLoading();
-  // Object get loaded => TileLoaded(tiles: tilesSum).runtimeType;
-  // Object get updating => TileUpdating(tiles: tilesSum).runtimeType;
-  // Object get error =>
-  //     TileError(failure: DefaultFailure(code: "extension on object error"));
-  // Object get tiles => tilesSum;
-
-  // Object get tiles => tilesSum;
-  // Object get initial => TileState().initial;
-  // Object get loading => TileState().loading;
-  // Object get loaded => TileState().loaded;
-  // Object get updating => TileState().updating;
-  // Object get error => TileState().error;
 }
 // extension TileStateExtension on SuperiorStateA {
 //   TileInitial get initialy => TileInitial();
@@ -51,6 +30,7 @@ extension TileStateExtension on Object {
 // }
 
 @immutable
+// ignore: must_be_immutable
 class TileState extends SuperiorStateA with EquatableMixin {
   List<Tile> tilesSum = [];
 
