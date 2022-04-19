@@ -3,32 +3,39 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bloc_test/data/model/tile_model.dart';
 import 'package:flutter_bloc_test/presentation/tile_bloc/bloc.dart';
 
-class ListViewRegion extends StatelessWidget {
-  const ListViewRegion({
-    Key? key,
+class ListViewRegion extends StatefulWidget {
+  ListViewRegion({
+    // Key? key,
     required this.size,
     required this.tiles,
     required this.route,
-  }) : super(key: key);
+  });
+  // : super(key: key);
 
   final Size size;
-  final List<Tile> tiles;
+  List<Tile> tiles;
   final String route;
+
+  @override
+  State<ListViewRegion> createState() => _ListViewRegionState();
+}
+
+class _ListViewRegionState extends State<ListViewRegion> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         SizedBox(
-          height: size.height - 200,
+          height: widget.size.height - 200,
           child: ListView.builder(
-              itemCount: tiles.length,
+              itemCount: widget.tiles.length,
               itemBuilder: (
                 BuildContext context,
                 int index,
               ) {
                 return ListTile(
-                    title: Text(tiles[index].title),
-                    subtitle: Text(tiles[index].contents));
+                    title: Text(widget.tiles[index].title),
+                    subtitle: Text(widget.tiles[index].contents));
               }),
         ),
         Row(
@@ -40,7 +47,7 @@ class ListViewRegion extends StatelessWidget {
                 child: const Text("button")),
             MaterialButton(
                 onPressed: () {
-                  Navigator.pushNamed(context, route);
+                  Navigator.pushNamed(context, widget.route);
                 },
                 child: const Text("Go to Page")),
           ],

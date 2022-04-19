@@ -42,25 +42,32 @@ class _BlocBuildBodyState<T extends Bloc<dynamic, S>, S extends SuperiorStateA>
     return BlocProvider(
       create: (_) => sl<T>(),
       child: BlocBuilder<T, S>(builder: (context, state) {
-        print("state = $state");
-        print("state.initialy = ${state.initial}");
+        // print("state = $state");
+        // print("state.initialy = ${state.initial}");
+        // print("state = $state");
+        // print("state.runtimeType = ${state.runtimeType}");
+        // print("state.loaded = ${state.loaded}");
         if (state == state.initial) {
           BlocProvider.of<T>(context).add(TileInitialEvent());
           return const LoadingWidget();
         } else if (state == state.loading) {
           return const LoadingWidget();
-        } else if (state == state.loaded) {
+        } else if (state.runtimeType == state.loaded) {
           return ListViewRegion(
             size: size,
-            tiles: state.loaded.tiles as List<Tile>,
+            // tiles: state.loaded.tiles as List<Tile>,
+            tiles: state.props as List<Tile>,
             route: widget.route,
           );
-        } else if (state == state.updating) {
+        } else if (state.runtimeType == state.updating) {
           return Stack(
             children: [
               ListViewRegion(
                 size: size,
-                tiles: state.loaded.tiles as List<Tile>,
+                // tiles: state.loaded.tiles as List<Tile>,
+                // tiles: state.tiles as List<Tile>,
+                tiles: state.props as List<
+                    Tile>, //? Object에는 tiles 라는게 없어서 위의 두 구문은 안되고 이렇게 작성을 해야한다.
                 route: widget.route,
               ),
               Positioned(

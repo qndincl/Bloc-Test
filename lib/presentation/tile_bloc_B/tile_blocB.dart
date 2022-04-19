@@ -11,7 +11,6 @@ import 'tile_eventB.dart';
 
 class TileBlocB extends Bloc<TileEventB, TileStateB> {
   late TileRepository _tileRepository;
-  //  final List<Tile> tiles = [];
 
 //! 8.0.0 버전 이후로는 on<> 으로 원하는 이벤트 헨들러 등록
 //? Bad state: add(TileInitialEvent) was called without a registered event handler.

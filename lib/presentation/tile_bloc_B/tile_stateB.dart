@@ -12,18 +12,30 @@ class SuperiorStateB extends Equatable {
   List<Object?> get props => [];
 }
 
-// extension TileStateExtensionB on Object {
-//   Object get initialy => TileStateB().initialy; //! 방식5 :드디어 해결은 했는데
-// //! 이 방식은 어따 쓸까... 그냥 방식 1 각각의 스테이트 안에 getter만들어주는게 제일 날듯하다.
-// }
-extension TileStateExtensionB on SuperiorStateB {
-  TileStateB get initialy => TileInitialB();
-  TileStateB get loading => TileLoadingB();
-  TileStateB get loaded => TileLoadedB(tiles: props as List<Tile>);
-  TileStateB get updating => TileUpdatingB(tiles: props as List<Tile>);
-  TileStateB get error =>
-      TileErrorB(failure: DefaultFailure(code: "TileStateB 에러"));
+extension TileStateExtensionB on Object {
+  Object get initial => TileInitialB();
+  Object get loading => TileLoadingB();
+  Object get loaded => TileLoadedB(tiles: const []);
+  Object get updating => TileUpdatingB(tiles: const []);
+  Object get error =>
+      TileErrorB(failure: DefaultFailure(code: "extension on object error"));
+  Object get tiles => [];
+
+  // Object get initial => TileStateB().initial;
+  // Object get loading => TileStateB().loading;
+  // Object get loaded => TileStateB().loaded;
+  // Object get updating => TileStateB().updating;
+  // Object get error => TileStateB().error;
 }
+
+// extension TileStateExtensionB on SuperiorStateB {
+//   TileStateB get initialy => TileInitialB();
+//   TileStateB get loading => TileInitialB();
+//   TileStateB get loaded => TileLoadedB(tiles: props as List<Tile>);
+//   TileStateB get updating => TileUpdatingB(tiles: props as List<Tile>);
+//   TileStateB get error =>
+//       TileErrorB(failure: DefaultFailure(code: "TileStateB 에러"));
+// }
 
 @immutable
 class TileStateB extends RootState with EquatableMixin {
