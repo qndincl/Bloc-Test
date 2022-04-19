@@ -29,7 +29,8 @@ typedef ItemCreator<S> = S Function();
 
 // }
 
-class BlocBuildBody<T extends Bloc<dynamic, S>, S extends RootState>
+// class BlocBuildBody<T extends Bloc<dynamic, S>, S extends RootState>
+class BlocBuildBody<T extends Bloc<dynamic, S>, S extends SuperiorStateA>
     extends StatefulWidget {
   // dynamic childState;
   BlocBuildBody({
@@ -51,7 +52,7 @@ class BlocBuildBody<T extends Bloc<dynamic, S>, S extends RootState>
   State<BlocBuildBody> createState() => _BlocBuildBodyState<T, S>();
 }
 
-class _BlocBuildBodyState<T extends Bloc<dynamic, S>, S extends RootState>
+class _BlocBuildBodyState<T extends Bloc<dynamic, S>, S extends SuperiorStateA>
     extends State<BlocBuildBody> with AlertMixin {
 //   void setBloc(T bloc){
 //  _bloc = bloc as Bloc<dynamic, dynamic>;

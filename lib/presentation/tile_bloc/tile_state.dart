@@ -24,12 +24,12 @@ import 'package:flutter_bloc_test/presentation/pages/root_state/root_state.dart'
 //   Object get error => TileState().error;
 // }
 
-// class SuperiorState extends Equatable {
-//   @override
-//   List<Object?> get props => [];
-// }
+class SuperiorStateA extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
-extension TileStateExtension on TileState {
+extension TileStateExtension on SuperiorStateA {
 // extension TileStateExtension on RootState {
 // extension RootStateExtension on RootState {
 // extension TileStateExtension2 on Object {
@@ -97,11 +97,12 @@ extension TileStateExtension on TileState {
 //   List<Object?> get props => throw UnimplementedError();
 // }
 
-class ST extends TileState {}
+// class ST extends TileState {}
 
 //? Equatable : to prevent unnecessary rebuilds.
 @immutable
-class TileState extends RootState with EquatableMixin {
+// class TileState extends RootState with EquatableMixin {
+class TileState extends SuperiorStateA with EquatableMixin {
   // TileInitial get initialyy => TileInitial(); //! 방식 1 테스트를 한 코드
 
   @override
@@ -111,7 +112,7 @@ class TileState extends RootState with EquatableMixin {
 
 }
 
-class TileInitial<T> extends TileState implements RootInitial {
+class TileInitial<T> extends TileState {
   // static TileInitial _instance = TileInitial();
   // // static TileInitial get instance => _instance;
   // factory TileInitial() {
@@ -128,7 +129,7 @@ class TileInitial<T> extends TileState implements RootInitial {
   // }
 }
 
-class TileLoading extends TileState implements RootLoading {
+class TileLoading extends TileState {
   @override
   List<Object> get props => [];
 
@@ -139,7 +140,7 @@ class TileLoading extends TileState implements RootLoading {
   }
 }
 
-class TileUpdating extends TileState implements RootUpdating {
+class TileUpdating extends TileState {
   @override
   final List<Tile> tiles;
   TileUpdating({required this.tiles});
@@ -159,7 +160,7 @@ class TileUpdating extends TileState implements RootUpdating {
   // }
 }
 
-class TileLoaded extends TileState implements RootLoaded {
+class TileLoaded extends TileState {
   @override
   final List<Tile> tiles;
   TileLoaded({required this.tiles});
@@ -175,7 +176,7 @@ class TileLoaded extends TileState implements RootLoaded {
   // }
 }
 
-class TileError extends TileState implements RootError {
+class TileError extends TileState {
   final Failure? failure;
   TileError({required this.failure});
 

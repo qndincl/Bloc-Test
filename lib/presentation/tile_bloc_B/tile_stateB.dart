@@ -7,8 +7,13 @@ import 'package:flutter_bloc_test/core/error/failure.dart';
 import 'package:flutter_bloc_test/data/model/tile_model.dart';
 import 'package:flutter_bloc_test/presentation/pages/root_state/root_state.dart';
 
+class SuperiorStateB extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
+
 // extension TileStateExtensionB on RootState {
-extension TileStateExtensionB on TileStateB {
+extension TileStateExtensionB on SuperiorStateB {
 // extension RootStateExtensionB on RootState {
   // TileInitialB get initial => TileInitialB();
   // TileStateB get initial => TileInitialB();
