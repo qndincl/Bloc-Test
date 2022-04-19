@@ -1,14 +1,12 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc_test/core/error/default_failure.dart';
 import 'package:flutter_bloc_test/core/error/failure.dart';
-import 'package:flutter_bloc_test/data/model/tile_model.dart';
 
+//! 이 방식도 포기
 extension RootStateExtension on RootState {
   RootInitial get initialy => RootInitial();
   RootLoading get loading => RootLoading();
-  // RootLoaded get loaded => RootLoaded(tiles: props as List<Tile>);
   RootLoaded get loaded => RootLoaded(tiles: props as List<Object>);
-  // RootUpdating get updating => RootUpdating(tiles: props as List<Tile>);
   RootUpdating get updating => RootUpdating(tiles: props as List<Object>);
   RootError get error =>
       RootError(failure: DefaultFailure(code: "RootState 에러"));

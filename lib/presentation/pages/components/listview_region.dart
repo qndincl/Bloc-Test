@@ -21,11 +21,6 @@ class ListViewRegion extends StatelessWidget {
         SizedBox(
           height: size.height - 200,
           child: ListView.builder(
-              // scrollDirection: Axis.vertical,
-              // shrinkWrap: true,
-              // physics: const AlwaysScrollableScrollPhysics(),
-              // itemCount: _tileBloc.tiles.length,
-              // itemCount: TileBloc.tiles.length,
               itemCount: tiles.length,
               itemBuilder: (
                 BuildContext context,
@@ -46,7 +41,6 @@ class ListViewRegion extends StatelessWidget {
             MaterialButton(
                 onPressed: () {
                   Navigator.pushNamed(context, route);
-                  // throw TileError(message: "message");
                 },
                 child: const Text("Go to Page")),
           ],

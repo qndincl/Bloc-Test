@@ -24,9 +24,9 @@ class TileRepositoryImpl extends TileRepository {
     for (var i = 0; i < 5; i++) {
       result.add(Tile(title: title, contents: contents, favorite: false));
       //error test
-      if (i == 4) {
-        result.add(Tile(title: '', contents: '', favorite: false));
-      }
+      // if (i == 4) {
+      //   result.add(Tile(title: '', contents: '', favorite: false));
+      // }
       if (result.last.title == '') {
         return Left(DefaultFailure(code: 'repo_Impl fail'));
       }

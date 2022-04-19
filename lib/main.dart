@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_bloc_test/presentation/pages/home_page/home_page.dart';
 import 'package:flutter_bloc_test/page_router.dart';
 import 'package:flutter_bloc_test/injection_container.dart' as di;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIOverlays([]); //상태창 가리기
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: []); //상태창 가리기
   await di.init();
   runApp(MyApp());
 }

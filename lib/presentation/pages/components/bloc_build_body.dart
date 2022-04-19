@@ -4,26 +4,12 @@ import 'package:flutter_bloc_test/data/model/tile_model.dart';
 import 'package:flutter_bloc_test/injection_container.dart';
 import 'package:flutter_bloc_test/presentation/pages/components/listview_region.dart';
 import 'package:flutter_bloc_test/presentation/pages/mixin/alert_mixin.dart';
-import 'package:flutter_bloc_test/presentation/pages/root_state/root_state.dart';
 import 'package:flutter_bloc_test/presentation/tile_bloc/bloc.dart';
-import 'package:flutter_bloc_test/presentation/tile_bloc_B/blocB.dart';
 import 'package:flutter_bloc_test/presentation/widgets/loading_widget.dart';
-
-// class Obj<T> {
-//   Obj({
-//     required T state,
-//   });
-//   late T state;
-// }
-
-// extension TileStateExtension3 on TileState {
-//   TileInitial get init => TileInitial();
-// }
 
 typedef ItemCreator<S> = S Function();
 
 // extension TileStateExtension2 on Object {
-
 //   Object get initialy => TileState().initialy; //! 방식5 :드디어 해결은 했는데
 // //! 이 방식은 어따 쓸까... 그냥 방식 1 각각의 스테이트 안에 getter만들어주는게 제일 날듯하다.
 

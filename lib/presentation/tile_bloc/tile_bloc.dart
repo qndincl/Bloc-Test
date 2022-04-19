@@ -23,37 +23,6 @@ class TileBloc extends Bloc<TileEvent, TileState> {
     on<TileLoadEvent>(_onLoadTileEvent);
   }
 
-  // @override
-  // Stream<TileState> mapEventToState(TileEvent event) async* {
-  //   if (event is TileInitialEvent) {
-  //     //   yield* _mapInitEvent(event);
-  //     // } else if (event is TileLoadEvent) {
-  //     //   yield* _mapLoadEvent(event);
-  //   }
-  // }
-
-// EventTransformer
-  // @override
-  // on<TileInitialEvent>((TileEvent e) {
-  //   if (event is TileInitialEvent) {
-  //     // super.onEvent(event);
-  //      _mapInitEvent(event);
-  //   } else if (event is TileLoadEvent) {
-  //     // super.onEvent(event);
-  //     _mapLoadEvent(event);
-  //   }
-  // });
-
-  // @override
-  // void onEvent(TileEvent event) {
-  //   if (event is TileInitialEvent) {
-  //     // super.onEvent(event);
-  //     _mapInitEvent(event);
-  //   } else if (event is TileLoadEvent) {
-  //     // super.onEvent(event);
-  //     _mapLoadEvent(event);
-  //   }
-  // }
 //! 8.0.0 버전 이후로는 이런 방식 사용
   Future<void> _onInitTileEvent(
     TileInitialEvent event,
@@ -95,15 +64,9 @@ class TileBloc extends Bloc<TileEvent, TileState> {
         (result as List<Tile>).addAll((state as TileLoaded).tiles);
       }
 
-      // var tile = result as List<Tile>;
-      // for (var i = 0; i < (result as List<Tile>).length; i++) {
-      //   tiles.add(result[i]);
-      // }
       await Future.delayed(const Duration(seconds: 2));
       emit(TileLoaded(tiles: result as List<Tile>));
     } catch (e) {
-      // emit(TileError(failure: e as Failure));
-
       logger.d("error message =$e");
     }
   }
